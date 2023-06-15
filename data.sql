@@ -41,3 +41,32 @@ UPDATE animals SET owner_id = o.id FROM owners o WHERE (animals.name = 'Charmand
 
 UPDATE animals SET owner_id = o.id FROM owners o WHERE (animals.name = 'Angemon' OR animals.name = 'Boarmon') AND o.full_name = 'Dean Winchester';
 
+INSERT INTO vets (name, age, date_of_graduation)
+VALUES ('William Tatcher', 45, '04-23-00'),
+('Maisy Smith', 26, '01-17-19'),
+('Stephanie Mendez', 64, '05-04-81'),
+('Jack Harkness', 38, '06-08-08');
+
+INSERT INTO specializations VALUES (1, 1), (1, 3), (2, 3), (2, 4);
+
+INSERT INTO visits VALUES
+(1, 1, '05-24-20'),
+(1, 3, '07-22-20'),
+(2, 4, '02-02-21'), 
+(3, 2, '01-05-20'), 
+(3, 2, '03-08-20'), 
+(3, 2, '05-14-20'), 
+(4, 3, '05-04-21'), 
+(5, 4, '02-24-21'), 
+(6, 2, '12-21-19'), 
+(6, 1, '08-10-20'), 
+(6, 2, '04-07-21'), 
+(7, 3, '09-29-19'), 
+(8, 4, '10-03-20'), 
+(8, 4, '11-04-20'), 
+(9, 2, '01-24-19'), 
+(9, 2, '05-15-19'), 
+(9, 2, '02-27-20'), 
+(9, 2, '08-03-20'), 
+(10, 3, '05-24-20'), 
+(10, 1, '01-11-21');
