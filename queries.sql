@@ -215,9 +215,8 @@ SELECT COUNT(*) AS num_visits_no_specialization
 FROM visits v
 JOIN animals a ON v.animals_id = a.id
 JOIN vets vt ON v.vets_id = vt.id
-JOIN specializations s ON vt.id = s.vets_id AND a.species_id = s.species_id
-WHERE s.species_id IS NULL
-GROUP BY a.name;
+LEFT JOIN specializations s ON vt.id = s.vets_id AND a.species_id = s.species_id
+WHERE s.species_id IS NULL;
 
 -- What specialty should Maisy Smith consider getting? Look for the species she gets the most.
 
