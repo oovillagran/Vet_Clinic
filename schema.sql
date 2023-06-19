@@ -35,5 +35,8 @@ CREATE TABLE visits (animals_id INT REFERENCES animals(id), vets_id INT REFERENC
 
 ALTER TABLE visits ADD CONSTRAINT pk_visits PRIMARY KEY (animals_id, vets_id);
 
+ALTER TABLE VISITS ALTER COLUMN date_of_visit TYPE TIMESTAMP;
 
-
+CREATE INDEX idx_animals_id ON animals (animals_id);
+CREATE INDEX idx_vets_id ON visits (vets_id);
+CREATE INDEX idx_email_id ON owners (email);

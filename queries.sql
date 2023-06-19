@@ -228,3 +228,7 @@ LEFT JOIN specializations s ON vt.id = s.vets_id AND a.species_id = s.species_id
 JOIN species ON a.species_id = species.id
 WHERE (s.species_id IS NULL OR s.species_id IS NULL) AND vt.name = 'Maisy Smith'
 GROUP BY vt.name, species.name;
+
+explain analyze SELECT COUNT(*) FROM visits where animals_id = 4;
+explain analyze SELECT * FROM visits where vets_id = 2;
+explain analyze SELECT * FROM owners where email = 'owner_18327@mail.com';
