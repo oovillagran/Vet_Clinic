@@ -6,21 +6,17 @@ CREATE TABLE animals (
   date_of_birth DATE NOT NULL,
   escape_attempts INT NOT NULL,
   neutered BOOLEAN NOT NULL,
-  weight_kg DECIMAL(4, 2)
+  weight_kg DECIMAL(4, 2),
+  species_id INT,
+  owner_id INT
 );
 
-ALTER TABLE animals ADD COLUMN species varchar;
-
-CREATE TABLE owners (id SERIAL PRIMARY KEY, full_name VARCHAR, AGE INT);
+CREATE TABLE owners (id SERIAL PRIMARY KEY, full_name VARCHAR, AGE INT, email VARCHAR);
 
 CREATE TABLE species (id SERIAL PRIMARY KEY, name VARCHAR);
 
-ALTER TABLE animals DROP COLUMN species;
-
-ALTER TABLE animals ADD COLUMN species_id INT;
 ALTER TABLE animals ADD CONSTRAINT fk_species_id FOREIGN KEY (species_id) REFERENCES species(id);
 
-ALTER TABLE animals ADD COLUMN owner_id INT;
 ALTER TABLE animals ADD CONSTRAINT fk_owner_id FOREIGN KEY (owner_id) REFERENCES owners(id);
 
 -- 4TH MILESTONE
@@ -37,6 +33,6 @@ ALTER TABLE visits ADD CONSTRAINT pk_visits PRIMARY KEY (animals_id, vets_id);
 
 ALTER TABLE VISITS ALTER COLUMN date_of_visit TYPE TIMESTAMP;
 
-CREATE INDEX idx_animals_id ON animals (animals_id);
+CREATE INDEX idx_animals_id ON visits (animals_id);
 CREATE INDEX idx_vets_id ON visits (vets_id);
 CREATE INDEX idx_email_id ON owners (email);
